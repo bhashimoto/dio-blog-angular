@@ -1,28 +1,25 @@
-<header>
-    <app-menu-bar></app-menu-bar>
-</header>
-
 <app-menu-title></app-menu-title>
 <div class="container__articles">
     <div class="articles__main">
+        <div class="articles__header">
+            <h2>Último post</h2>
+        </div>
         <app-big-card 
-            photoCover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6bnOy_uOhsVTSvyenkI4eoclbmzQyMcZvpw&usqp=CAU"
-            cardTitle="Novo homem de ferro"
-            cardDescription="Marvel anuncia novo homem de ferro"
+            Id="{{ bigCard.id }}"
+            photoCover="{{ bigCard.photo }}"
+            cardTitle="{{ bigCard.title }}"
+            cardDescription="{{ bigCard.description }}"
         ></app-big-card>
     </div>
+
     <div class="articles__others">
-        <app-small-card
-            cardTitle="Mais um filme"
-            photoCover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6bnOy_uOhsVTSvyenkI4eoclbmzQyMcZvpw&usqp=CAU"
-        ></app-small-card>
-        <app-small-card
-            cardTitle="Ai meu deus"
-            photoCover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6bnOy_uOhsVTSvyenkI4eoclbmzQyMcZvpw&usqp=CAU"
-        ></app-small-card>
-        <app-small-card
-            cardTitle="Até quando?"
-            photoCover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6bnOy_uOhsVTSvyenkI4eoclbmzQyMcZvpw&usqp=CAU"
+        <div class="articles__header">
+            <h2>Posts recentes</h2>
+        </div>
+        <app-small-card *ngFor="let card of smallCards; index as i"
+            Id="{{card.id}}"
+            cardTitle="{{card.title}}"
+            photoCover="{{card.photo}}"
         ></app-small-card>
     </div>
 </div>
